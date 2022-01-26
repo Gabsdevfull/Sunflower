@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -20,13 +21,13 @@ public class Categoria {
 
 	@NotBlank(message = "O atributo nome não pode ser vazio")
 	@Size(min = 5, max = 100, message = "O atributo nome deve conter no min 5 e no max 100 caracteres")
-	private String nome_categoria;
+	private String nomeCategoria;
 
 	@NotBlank(message = "O atributo descricao não pode ser vazio")
 	@Size(min = 5, max = 100, message = "O atributo descricao deve conter no min 5 e no max 100 caracteres")
 	private String descricaoCategoria;
 
-	@NotBlank(message = "O atributo setor não pode ser vazio")
+	@NotNull(message = "O atributo setor não pode ser vazio")
 	@Enumerated(value = EnumType.STRING)
 	private Setor setor;
 
@@ -38,12 +39,12 @@ public class Categoria {
 		this.id = id;
 	}
 
-	public String getNome_categoria() {
-		return nome_categoria;
+	public String getNomeCategoria() {
+		return nomeCategoria;
 	}
 
-	public void setNome_categoria(String nome_categoria) {
-		this.nome_categoria = nome_categoria;
+	public void setNomeCategoria(String nomeCategoria) {
+		this.nomeCategoria = nomeCategoria;
 	}
 
 	public String getDescricaoCategoria() {
@@ -62,6 +63,7 @@ public class Categoria {
 		this.setor = setor;
 	}
 
+	
 	
 	
 }
